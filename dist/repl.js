@@ -14,9 +14,10 @@ export function startREPL(state) {
             return;
         }
         const command = cleanIn[0];
+        const args = cleanIn.slice(1);
         if (command in state.commands) {
             try {
-                state.commands[command].callback(state);
+                state.commands[command].callback(state, ...args);
             }
             catch (err) {
                 if (err instanceof Error) {
