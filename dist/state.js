@@ -12,5 +12,6 @@ export function initState(cache) {
         pokeapi: new PokeAPI(cache),
         nextLocationsURL: null,
         prevLocationsURL: null,
+        pokedex: {},
     };
 }

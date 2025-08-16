@@ -32,4 +32,13 @@ export class PokeAPI {
         this.#cache.add(fullURL, location);
         return location;
     }
+    async fetchPokemon(pokemonName) {
+        const fullURL = `${PokeAPI.baseURL}/pokemon/${pokemonName}`;
+        const response = await fetch(fullURL);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch pokemon: ${response.status}`);
+        }
+        const pokemon = await response.json();
+        return pokemon;
+    }
 }
